@@ -1,7 +1,9 @@
 ﻿using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Entities.GameEnvironment;
 using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.Services;
+using BettingConsoleGame.Exceptions;
 
 namespace BettingConsoleGame;
 
@@ -22,15 +24,40 @@ public class GameLoop
     {
         while (true)
         {
-            var action = actionReader.GetNextAction();
-            var result = gameService.Execute(action, wallet);
-
-            actionResultOutputter.Output(result);
-
-            if (action.GetType() != typeof(ExitAction))
+            try
             {
-                return;
+                var action = actionReader.GetNextAction();
+                var result = gameService.Execute(action, wallet);
+
+                actionResultOutputter.Output(result);
+
+                if (action.GetType() == typeof(ExitAction))
+                {
+                    return;
+                }
             }
+            catch(InvalidActionParametersException exception)
+            {
+                Console.WriteLine("Invalid parameters for the action: " + exception.Message);
+            }
+            catch(UnknownActionException exception)
+            {
+                Console.WriteLine($"{exception.Message}. Please use deposit, withdraw, bet or exit actions.");
+            }
+            catch (InvalidBetException exception)
+            {
+                Console.WriteLine($"{exception.Message}.");
+            }
+            catch (NotEnoughMoneyException)
+            {
+                Console.WriteLine($"Not enough balance to execute the action. Please deposit more funds.");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine($"Something went wrong.");
+            }
+
+            Console.WriteLine();
         }
     }
 }

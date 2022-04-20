@@ -1,4 +1,4 @@
-﻿namespace BettingConsoleGame.Domain.Entities.GameEnvironment.ActionResult.ActionResult;
+﻿namespace BettingConsoleGame.Domain.Entities.GameEnvironment.ActionResult;
 
 public enum ResultType
 {

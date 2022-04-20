@@ -1,5 +1,6 @@
 ﻿using BettingConsoleGame.Domain.Entities.GameEnvironment;
 using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+using BettingConsoleGame.Domain.Exceptions;
 
 namespace BettingConsoleGame;
 
@@ -20,7 +21,7 @@ public class ConsoleActionReader : IActionReader
 
         if (string.IsNullOrEmpty(actionString))
         {
-            return new InvalidAction();
+            throw new UnknownActionException(actionString);
         }
 
         var actionParameters = actionString.Split(' ');
