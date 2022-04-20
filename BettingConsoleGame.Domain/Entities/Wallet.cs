@@ -14,6 +14,7 @@ public class Wallet
     }
 
     public Money Balance { get; private set; }
+    public Money Won { get; private set; }
 
     public void Deposit(Money amount)
     {
@@ -33,11 +34,13 @@ public class Wallet
         if (betAmount > this.Balance)
             throw new NotEnoughMoneyException();
 
+        this.Won -= betAmount;
         this.Balance -= betAmount;
     }
 
     public void AcceptWin(Money betAmount)
     {
+        this.Won += betAmount;
         this.Balance += betAmount;
     }
 }

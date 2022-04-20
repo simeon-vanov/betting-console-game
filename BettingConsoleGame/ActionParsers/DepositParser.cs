@@ -1,6 +1,4 @@
 ﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
-using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.Exceptions;
 
 namespace BettingConsoleGame.ActionParsers;
 

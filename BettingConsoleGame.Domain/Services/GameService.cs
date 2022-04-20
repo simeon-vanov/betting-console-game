@@ -20,7 +20,9 @@ public class GameService : IGameService
         return action switch
         {
             DepositAction deposit => this.Deposit(deposit, wallet),
-            _ => throw new NotImplementedException()
+            ExitAction exit => new ExitResult(wallet.Won, ResultType.Success),
+
+            _ => throw new UnknownActionException(action.GetType().Name)
         };
     }
 

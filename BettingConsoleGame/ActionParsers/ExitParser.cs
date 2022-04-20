@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
-using BettingConsoleGame.Domain.ValueObjects;
+using BettingConsoleGame.Exceptions;
 
 namespace BettingConsoleGame.Parsers;
 
@@ -9,7 +9,7 @@ public class ExitParser : IConsoleActionParser
     {
         if (actionParameters.Length > 1)
         {
-            return new InvalidAction();
+            throw new InvalidActionParametersException("exit does not accept any parameters.");
         }
 
         return new ExitAction();
