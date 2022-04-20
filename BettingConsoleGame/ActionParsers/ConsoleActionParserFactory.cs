@@ -12,6 +12,8 @@ public class ConsoleActionParserFactory
         {
             case "deposit":
                 return new DepositParser();
+            case "withdraw":
+                return new WithdrawParser();
             case "exit":
                 return new ExitParser();
             default:

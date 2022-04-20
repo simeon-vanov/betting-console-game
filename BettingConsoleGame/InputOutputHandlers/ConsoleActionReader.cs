@@ -1,8 +1,7 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment;
-using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
 using BettingConsoleGame.Domain.Exceptions;
 
-namespace BettingConsoleGame;
+namespace BettingConsoleGame.InputOutputHandlers;
 
 public class ConsoleActionReader : IActionReader
 {
@@ -16,7 +15,7 @@ public class ConsoleActionReader : IActionReader
     public IAction GetNextAction()
     {
         Console.WriteLine("Please, Submit Action: ");
-        
+
         var actionString = Console.ReadLine();
 
         if (string.IsNullOrEmpty(actionString))

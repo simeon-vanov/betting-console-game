@@ -21,9 +21,16 @@ public class GameService : IGameService
         {
             DepositAction deposit => this.Deposit(deposit, wallet),
             ExitAction exit => new ExitResult(wallet.Won, ResultType.Success),
-
+            WithdrawAction withdraw => this.Withdraw(withdraw, wallet),
             _ => throw new UnknownActionException(action.GetType().Name)
         };
+    }
+
+    private WithdrawResult Withdraw(WithdrawAction withdraw, Wallet wallet)
+    {
+        wallet.Withdraw(withdraw.Amount);
+
+        return new WithdrawResult(wallet.Balance, withdraw.Amount, ResultType.Success);
     }
 
     private DepositResult Deposit(DepositAction deposit, Wallet wallet)

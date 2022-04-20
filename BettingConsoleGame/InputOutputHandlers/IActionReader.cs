@@ -1,6 +1,6 @@
 ﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
 
-namespace BettingConsoleGame.Domain.Entities.GameEnvironment;
+namespace BettingConsoleGame.InputOutputHandlers;
 
 public interface IActionReader
 {

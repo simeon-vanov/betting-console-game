@@ -1,9 +1,9 @@
 ﻿using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.GameEnvironment;
 using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Exceptions;
+using BettingConsoleGame.InputOutputHandlers;
 
 namespace BettingConsoleGame;
 
@@ -38,26 +38,24 @@ public class GameLoop
             }
             catch(InvalidActionParametersException exception)
             {
-                Console.WriteLine("Invalid parameters for the action: " + exception.Message);
+                actionResultOutputter.OutputMessage("Invalid parameters for the action: " + exception.Message);
             }
             catch(UnknownActionException exception)
             {
-                Console.WriteLine($"{exception.Message}. Please use deposit, withdraw, bet or exit actions.");
+                actionResultOutputter.OutputMessage($"{exception.Message}. Please use deposit, withdraw, bet or exit actions.");
             }
             catch (InvalidBetException exception)
             {
-                Console.WriteLine($"{exception.Message}.");
+                actionResultOutputter.OutputMessage($"{exception.Message}.");
             }
             catch (NotEnoughMoneyException)
             {
-                Console.WriteLine($"Not enough balance to execute the action. Please deposit more funds.");
+                actionResultOutputter.OutputMessage($"Not enough balance to execute the action.");
             }
             catch (Exception)
             {
-                Console.WriteLine($"Something went wrong.");
+                actionResultOutputter.OutputMessage($"Something went wrong.");
             }
-
-            Console.WriteLine();
         }
     }
 }

@@ -5,8 +5,8 @@ namespace BettingConsoleGame.Domain.Entities;
 
 public class Wallet
 {
-    public static Wallet EmptyWallet => new(Money.ZeroDollars);
-    public static Wallet NonEmptyWallet(Money balance) => new(balance);
+    public static Wallet Empty => new(Money.ZeroDollars);
+    public static Wallet NonEmpty(Money balance) => new(balance);
 
     private Wallet(Money balance)
     {
