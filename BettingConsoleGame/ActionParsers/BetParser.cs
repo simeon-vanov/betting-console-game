@@ -3,10 +3,10 @@ using BettingConsoleGame.Domain.Entities.Action.Types;
 
 namespace BettingConsoleGame.ActionParsers;
 
-public class DepositParser : ActionWithAmountParser
+public class BetParser : ActionWithAmountParser
 {
     public override IAction Parse(string[] actionParameters)
     {
-        return new DepositAction(ParseAmount(actionParameters));
+        return new BetAction(ParseAmount(actionParameters));
     }
 }

@@ -1,7 +1,8 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.Action;
+using BettingConsoleGame.Domain.Entities.Action.Types;
 using BettingConsoleGame.Exceptions;
 
-namespace BettingConsoleGame.Parsers;
+namespace BettingConsoleGame.ActionParsers;
 
 public class ExitParser : IConsoleActionParser
 {

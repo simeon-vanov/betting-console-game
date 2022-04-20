@@ -1,4 +1,4 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.Action;
 using BettingConsoleGame.Domain.ValueObjects;
 using BettingConsoleGame.Exceptions;
 

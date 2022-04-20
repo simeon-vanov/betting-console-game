@@ -4,11 +4,11 @@ public record Money
 {
     public static Money ZeroDollars => new Money(0, Currency.USDollar);
     public static Money OneDollar => new Money(1, Currency.USDollar);
-    public static Money TenDollars => new Money(1, Currency.USDollar);
+    public static Money TenDollars => new Money(10, Currency.USDollar);
 
     public Money(decimal amount, Currency currency)
     {
-        this.Amount = amount;
+        this.Amount = decimal.Round(amount, 2);
         this.Currency = currency;
     }
 

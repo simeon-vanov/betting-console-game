@@ -1,6 +1,6 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.Action;
 
-namespace BettingConsoleGame;
+namespace BettingConsoleGame.ActionParsers;
 
 public interface IConsoleActionParser
 {

@@ -1,10 +1,12 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.ActionResult;
-using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities;
+using BettingConsoleGame.Domain.Entities.Action;
+using BettingConsoleGame.Domain.Entities.Action.ActionResult;
+using BettingConsoleGame.Domain.Entities.Action.Types;
+using BettingConsoleGame.Domain.Entities.SlotGame;
 using BettingConsoleGame.Domain.Exceptions;
-using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Domain.Services.Randomize;
 
-namespace BettingConsoleGame.Domain.Entities.GameEnvironment;
+namespace BettingConsoleGame.Domain.Services;
 
 public class GameService : IGameService
 {
@@ -19,9 +21,11 @@ public class GameService : IGameService
     {
         return action switch
         {
-            DepositAction deposit => this.Deposit(deposit, wallet),
+            DepositAction deposit => Deposit(deposit, wallet),
             ExitAction exit => new ExitResult(wallet.Won, ResultType.Success),
-            WithdrawAction withdraw => this.Withdraw(withdraw, wallet),
+            WithdrawAction withdraw => Withdraw(withdraw, wallet),
+            BetAction bet => Bet(bet, wallet),
+
             _ => throw new UnknownActionException(action.GetType().Name)
         };
     }
@@ -38,6 +42,18 @@ public class GameService : IGameService
         wallet.Deposit(deposit.Amount);
 
         return new DepositResult(wallet.Balance, deposit.Amount, ResultType.Success);
+    }
+
+    private BetResult Bet(BetAction bet, Wallet wallet)
+    {
+        wallet.Bet(bet.Amount);
+
+        var game = new BetGame(numberRandomizerService);
+        var result = game.PlayBets(bet.Amount);
+
+        wallet.AcceptWin(result.WinAmount);
+
+        return new BetResult(wallet.Balance, result.WinAmount, result.WinnerType, ResultType.Success);
     }
 }
 

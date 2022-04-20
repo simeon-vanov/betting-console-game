@@ -1,5 +1,5 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.ActionResult;
-using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.Action;
+using BettingConsoleGame.Domain.Entities.Action.ActionResult;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
@@ -18,6 +18,10 @@ public class ConsoleOutputter : IActionResultOutputter
         else if (actionResult.GetType() == typeof(WithdrawResult))
         {
             OutputWithdrawResult(actionResult);
+        }
+        else if (actionResult.GetType() == typeof(BetResult))
+        {
+            OutputBetResult(actionResult);
         }
 
         Console.WriteLine();
@@ -58,5 +62,19 @@ public class ConsoleOutputter : IActionResultOutputter
             Console.WriteLine($"Your withdrawal of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
         else
             Console.WriteLine($"Your withdrawal of {depositResult.Deposited} failed. Your current balance is: {depositResult.NewBalance}");
+    }
+
+    private void OutputBetResult(IActionResult actionResult)
+    {
+        var bestResult = (BetResult)actionResult;
+        
+        if (bestResult.WinAmount > 0)
+        {
+            Console.WriteLine($"Congrats - you won {bestResult.WinAmount}! Your current balance is: {bestResult.NewBalance}");
+        }
+        else
+        {
+            Console.WriteLine($"No luck this time! Your current balance is: {bestResult.NewBalance}");
+        }
     }
 }

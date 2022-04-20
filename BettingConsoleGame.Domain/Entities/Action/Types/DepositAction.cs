@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.Domain.ValueObjects;
 
-namespace BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+namespace BettingConsoleGame.Domain.Entities.Action.Types;
 
 public record DepositAction(Money Amount) : IAction;

@@ -11,6 +11,7 @@ public class Wallet
     private Wallet(Money balance)
     {
         this.Balance = balance;
+        this.Won = Money.ZeroDollars;
     }
 
     public Money Balance { get; private set; }

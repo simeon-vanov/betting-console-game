@@ -1,11 +1,12 @@
 ﻿using BettingConsoleGame;
+using BettingConsoleGame.ActionParsers;
 using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.GameEnvironment;
+using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Domain.Services.Randomize;
 using BettingConsoleGame.InputOutputHandlers;
 
 var gameEnvironment = new GameLoop(
-    new ConsoleActionReader(new ConsoleActionParserFactory()),
+    new ConsoleActionReader(),
     new ConsoleOutputter(),
     new GameService(new NumberRandomizerService()));
 

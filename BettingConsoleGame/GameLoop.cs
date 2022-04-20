@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+using BettingConsoleGame.Domain.Entities.Action.Types;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Exceptions;

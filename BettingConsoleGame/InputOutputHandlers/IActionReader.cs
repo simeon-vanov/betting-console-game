@@ -1,4 +1,4 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.Domain.Entities.Action;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 

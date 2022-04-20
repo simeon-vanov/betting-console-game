@@ -1,17 +1,11 @@
-﻿using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+﻿using BettingConsoleGame.ActionParsers;
+using BettingConsoleGame.Domain.Entities.Action;
 using BettingConsoleGame.Domain.Exceptions;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
 public class ConsoleActionReader : IActionReader
 {
-    private readonly ConsoleActionParserFactory consoleActionParserFactory;
-
-    public ConsoleActionReader(ConsoleActionParserFactory consoleActionParserFactory)
-    {
-        this.consoleActionParserFactory = consoleActionParserFactory;
-    }
-
     public IAction GetNextAction()
     {
         Console.WriteLine("Please, Submit Action: ");
@@ -26,8 +20,25 @@ public class ConsoleActionReader : IActionReader
         var actionParameters = actionString.Split(' ');
         var action = actionParameters[0];
 
-        var actionParser = consoleActionParserFactory.Create(action);
+        var actionParser = this.CreateParser(action);
 
         return actionParser.Parse(actionParameters);
+    }
+
+    private IConsoleActionParser CreateParser(string action)
+    {
+        switch (action)
+        {
+            case "deposit":
+                return new DepositParser();
+            case "withdraw":
+                return new WithdrawParser();
+            case "exit":
+                return new ExitParser();
+            case "bet":
+                return new BetParser();
+            default:
+                throw new UnknownActionException(action);
+        }
     }
 }

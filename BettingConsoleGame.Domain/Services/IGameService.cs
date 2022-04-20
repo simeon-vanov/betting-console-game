@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.GameEnvironment.Actions;
+using BettingConsoleGame.Domain.Entities.Action;
 
 namespace BettingConsoleGame.Domain.Services;
 
