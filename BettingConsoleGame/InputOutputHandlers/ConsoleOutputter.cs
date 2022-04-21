@@ -1,5 +1,5 @@
-﻿using BettingConsoleGame.Domain.Entities.Action;
-using BettingConsoleGame.Domain.Entities.Action.ActionResult;
+﻿using BettingConsoleGame.Application.Action.ActionResult;
+using BettingConsoleGame.Application.Action.Interfaces;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 

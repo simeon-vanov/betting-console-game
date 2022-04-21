@@ -1,4 +1,4 @@
-﻿using BettingConsoleGame.Domain.Entities.Action;
+﻿using BettingConsoleGame.Application.Action.Interfaces;
 
 namespace BettingConsoleGame.ActionParsers;
 

@@ -1,7 +1,7 @@
-﻿using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.Action.Types;
+﻿using BettingConsoleGame.Application.Action.Types;
+using BettingConsoleGame.Application.Services.Interfaces;
+using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Exceptions;
-using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Exceptions;
 using BettingConsoleGame.InputOutputHandlers;
 

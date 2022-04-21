@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.Domain.Exceptions;
-using BettingConsoleGame.Domain.Services.Randomize;
+using BettingConsoleGame.Domain.Services;
 using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.Domain.Entities.SlotGame;

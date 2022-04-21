@@ -1,4 +1,4 @@
-﻿namespace BettingConsoleGame.Domain.Services.Randomize;
+﻿namespace BettingConsoleGame.Application.Services.Randomize;
 
 public static class NumberRandomizer
 {

@@ -1,5 +1,5 @@
 ﻿using BettingConsoleGame.ActionParsers;
-using BettingConsoleGame.Domain.Entities.Action;
+using BettingConsoleGame.Application.Action.Interfaces;
 using BettingConsoleGame.Domain.Exceptions;
 
 namespace BettingConsoleGame.InputOutputHandlers;

@@ -1,8 +1,7 @@
 ﻿using BettingConsoleGame;
-using BettingConsoleGame.ActionParsers;
+using BettingConsoleGame.Application.Services;
+using BettingConsoleGame.Application.Services.Randomize;
 using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Services;
-using BettingConsoleGame.Domain.Services.Randomize;
 using BettingConsoleGame.InputOutputHandlers;
 
 var gameEnvironment = new GameLoop(

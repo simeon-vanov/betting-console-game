@@ -1,12 +1,13 @@
-﻿using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Entities.Action;
-using BettingConsoleGame.Domain.Entities.Action.ActionResult;
-using BettingConsoleGame.Domain.Entities.Action.Types;
+﻿using BettingConsoleGame.Application.Action.ActionResult;
+using BettingConsoleGame.Application.Action.Interfaces;
+using BettingConsoleGame.Application.Action.Types;
+using BettingConsoleGame.Application.Services.Interfaces;
+using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Entities.SlotGame;
 using BettingConsoleGame.Domain.Exceptions;
-using BettingConsoleGame.Domain.Services.Randomize;
+using BettingConsoleGame.Domain.Services;
 
-namespace BettingConsoleGame.Domain.Services;
+namespace BettingConsoleGame.Application.Services;
 
 public class GameService : IGameService
 {

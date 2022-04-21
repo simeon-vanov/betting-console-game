@@ -1,4 +1,4 @@
-﻿namespace BettingConsoleGame.Domain.Services.Randomize;
+﻿namespace BettingConsoleGame.Domain.Services;
 
 public interface INumberRandomizerService
 {

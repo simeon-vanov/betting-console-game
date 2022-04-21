@@ -1,6 +1,6 @@
-﻿using BettingConsoleGame.Domain.Entities.Action;
+﻿using BettingConsoleGame.Application.Action.Interfaces;
 using BettingConsoleGame.Domain.ValueObjects;
 
-namespace BettingConsoleGame.Domain.Entities.Action.ActionResult;
+namespace BettingConsoleGame.Application.Action.ActionResult;
 
 public record DepositResult(Money NewBalance, Money Deposited, ResultType Type) : IActionResult;
