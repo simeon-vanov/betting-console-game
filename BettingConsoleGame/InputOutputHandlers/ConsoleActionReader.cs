@@ -1,12 +1,13 @@
 ﻿using BettingConsoleGame.ActionParsers;
-using BettingConsoleGame.Application.Action.Interfaces;
+using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.Exceptions;
+using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
 public class ConsoleActionReader : IActionReader
 {
-    public IAction GetNextAction()
+    public Result<IAction> GetNextAction()
     {
         Console.WriteLine("Please, Submit Action: ");
 

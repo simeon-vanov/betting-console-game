@@ -1,6 +1,7 @@
-﻿using BettingConsoleGame.Application.Action.Types;
+﻿using BettingConsoleGame.Application.Actions.Types;
 using BettingConsoleGame.Application.Services.Interfaces;
 using BettingConsoleGame.Domain.Entities;
+using BettingConsoleGame.Domain.Enums;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Exceptions;
 using BettingConsoleGame.InputOutputHandlers;
@@ -26,7 +27,15 @@ public class GameLoop
         {
             try
             {
-                var action = actionReader.GetNextAction();
+                var actionParseResult = actionReader.GetNextAction();
+
+                if(actionParseResult.ResultType == ResultType.Fail)
+                {
+                    actionResultOutputter.OutputErrors(actionParseResult.Errors);
+                    continue;
+                }
+
+                var action = actionParseResult.ResultItem;
                 var result = gameService.Execute(action, wallet);
 
                 actionResultOutputter.Output(result);

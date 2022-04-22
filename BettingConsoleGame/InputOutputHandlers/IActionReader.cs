@@ -1,9 +1,10 @@
-﻿using BettingConsoleGame.Application.Action.Interfaces;
+﻿using BettingConsoleGame.Application.Actions.Interfaces;
+using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
 public interface IActionReader
 {
-    IAction GetNextAction();
+    Result<IAction> GetNextAction();
 }
 

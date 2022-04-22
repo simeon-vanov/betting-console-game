@@ -1,9 +1,10 @@
-﻿using BettingConsoleGame.Application.Action.ActionResult;
-using BettingConsoleGame.Application.Action.Interfaces;
-using BettingConsoleGame.Application.Action.Types;
+﻿using BettingConsoleGame.Application.Actions.ActionResult;
+using BettingConsoleGame.Application.Actions.Interfaces;
+using BettingConsoleGame.Application.Actions.Types;
 using BettingConsoleGame.Application.Services.Interfaces;
 using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Entities.SlotGame;
+using BettingConsoleGame.Domain.Enums;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.Services;
 

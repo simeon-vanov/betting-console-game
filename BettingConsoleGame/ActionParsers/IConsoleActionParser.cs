@@ -1,8 +1,9 @@
-﻿using BettingConsoleGame.Application.Action.Interfaces;
+﻿using BettingConsoleGame.Application.Actions.Interfaces;
+using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.ActionParsers;
 
 public interface IConsoleActionParser
 {
-    IAction Parse(string[] actionParameters);
+    Result<IAction> Parse(string[] actionParameters);
 }

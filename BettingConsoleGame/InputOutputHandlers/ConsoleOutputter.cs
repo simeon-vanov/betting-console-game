@@ -1,5 +1,6 @@
-﻿using BettingConsoleGame.Application.Action.ActionResult;
-using BettingConsoleGame.Application.Action.Interfaces;
+﻿using BettingConsoleGame.Application.Actions.ActionResult;
+using BettingConsoleGame.Application.Actions.Interfaces;
+using BettingConsoleGame.Domain.Enums;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
@@ -30,6 +31,12 @@ public class ConsoleOutputter : IActionResultOutputter
     public void OutputMessage(string message)
     {
         Console.WriteLine(message);
+    }
+
+    public void OutputErrors(IList<string> errors)
+    {
+        foreach (var error in errors)
+            Console.WriteLine(error);
     }
 
     private void OutputExitResult(IActionResult actionResult)
