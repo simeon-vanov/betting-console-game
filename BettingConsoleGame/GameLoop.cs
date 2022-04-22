@@ -1,7 +1,7 @@
 ﻿using BettingConsoleGame.Application.Actions.Types;
 using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Enums;
-using BettingConsoleGame.InputOutputHandlers;
+using BettingConsoleGame.Interfaces;
 
 namespace BettingConsoleGame;
 

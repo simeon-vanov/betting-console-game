@@ -1,7 +1,7 @@
 ﻿using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.ValueObjects;
 
-namespace BettingConsoleGame.InputOutputHandlers;
+namespace BettingConsoleGame.Interfaces;
 
 public interface IActionReader
 {

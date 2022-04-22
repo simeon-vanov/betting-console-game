@@ -1,12 +1,16 @@
 ﻿using BettingConsoleGame;
-using BettingConsoleGame.Application.Actions.Factory;
-using BettingConsoleGame.Application.Services.Randomize;
+using BettingConsoleGame.Application;
+using BettingConsoleGame.Domain;
 using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Factories;
-using BettingConsoleGame.InputOutputHandlers;
+using Microsoft.Extensions.DependencyInjection;
 
-var gameEnvironment = new GameLoop(
-    new ConsoleActionReader(new ActionFactory(new GameFactory(new NumberRandomizerService()))),
-    new ConsoleOutputter());
+IServiceCollection services = new ServiceCollection();
 
-gameEnvironment.Start(Wallet.Empty);
+services.AddDomain();
+services.AddApplication();
+services.AddConsole();
+
+var serviceProvider = services.BuildServiceProvider();
+var gameLoop = serviceProvider.GetService<GameLoop>();
+
+gameLoop.Start(Wallet.Empty);

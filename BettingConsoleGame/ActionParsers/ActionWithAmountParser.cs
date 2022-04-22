@@ -1,5 +1,6 @@
 ﻿using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.ValueObjects;
+using BettingConsoleGame.Interfaces;
 
 namespace BettingConsoleGame.ActionParsers;
 
@@ -10,7 +11,7 @@ public abstract class ActionWithAmountParser : IConsoleActionParser
     protected Result<Money> ParseAmount(string[] actionParameters)
     {
         if (actionParameters.Length > 2)
-            return Result<Money>.Failed("Amount must be in the format 0.00.");
+            return Result<Money>.Failed("Action accepts only amount as parameter.");
         
         var amountString = actionParameters[1];
 

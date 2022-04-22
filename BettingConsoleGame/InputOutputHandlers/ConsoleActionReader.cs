@@ -2,6 +2,7 @@
 using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.ValueObjects;
+using BettingConsoleGame.Interfaces;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 

@@ -1,7 +1,7 @@
 ﻿using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.ValueObjects;
 
-namespace BettingConsoleGame.ActionParsers;
+namespace BettingConsoleGame.Interfaces;
 
 public interface IConsoleActionParser
 {
