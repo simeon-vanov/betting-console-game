@@ -1,5 +1,5 @@
-﻿using BettingConsoleGame.Application.Actions.Factory;
-using BettingConsoleGame.Application.Actions.Interfaces;
+﻿using BettingConsoleGame.Application.Actions;
+using BettingConsoleGame.Application.Actions.Factory;
 using BettingConsoleGame.Application.Services.Randomize;
 using BettingConsoleGame.Domain.Services;
 using Microsoft.Extensions.DependencyInjection;

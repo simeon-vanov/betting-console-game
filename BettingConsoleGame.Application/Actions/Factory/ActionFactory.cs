@@ -1,6 +1,5 @@
-﻿using BettingConsoleGame.Application.Actions.Interfaces;
-using BettingConsoleGame.Application.Actions.Types;
-using BettingConsoleGame.Domain.Factories.Interfaces;
+﻿using BettingConsoleGame.Application.Actions.Types;
+using BettingConsoleGame.Domain.Entities.Games;
 using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.Application.Actions.Factory;

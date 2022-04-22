@@ -1,5 +1,5 @@
-﻿using BettingConsoleGame.Domain.Factories;
-using BettingConsoleGame.Domain.Factories.Interfaces;
+﻿using BettingConsoleGame.Domain.Entities.Games;
+using BettingConsoleGame.Domain.Entities.Games.Factory;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BettingConsoleGame.Domain;

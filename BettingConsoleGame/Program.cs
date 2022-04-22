@@ -2,6 +2,7 @@
 using BettingConsoleGame.Application;
 using BettingConsoleGame.Domain;
 using BettingConsoleGame.Domain.Entities;
+using BettingConsoleGame.Game;
 using Microsoft.Extensions.DependencyInjection;
 
 IServiceCollection services = new ServiceCollection();

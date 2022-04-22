@@ -1,5 +1,8 @@
-﻿using BettingConsoleGame.InputOutputHandlers;
-using BettingConsoleGame.Interfaces;
+﻿using BettingConsoleGame.Game;
+using BettingConsoleGame.InputHandlers;
+using BettingConsoleGame.InputHandlers.ConsoleInput;
+using BettingConsoleGame.OutputHandlers;
+using BettingConsoleGame.OutputHandlers.ConsoleOutput;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
