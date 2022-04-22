@@ -25,13 +25,13 @@ public class GameLoop
             {
                 var actionParseResult = actionReader.GetNextAction();
 
-                if (actionParseResult.ResultType == ResultType.Fail)
+                if (actionParseResult.Failed)
                 {
                     actionResultOutputter.OutputError(actionParseResult.Errors);
                     continue;
                 }
 
-                var action = actionParseResult.ResultItem;
+                var action = actionParseResult.Value;
                 var result = action.Execute(wallet);
 
                 actionResultOutputter.Output(result);

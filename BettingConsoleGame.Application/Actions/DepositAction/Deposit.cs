@@ -16,6 +16,6 @@ public class Deposit : IAction
     {
         wallet.Deposit(amount);
 
-        return Result<IActionResult>.Succesful(new DepositResult(wallet.Balance, amount));
+        return Result<IActionResult>.Succeed(new DepositResult(wallet.Balance, amount));
     }
 }

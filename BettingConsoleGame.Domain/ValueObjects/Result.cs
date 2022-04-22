@@ -6,32 +6,34 @@ public class Result<T>
 {
     private Result() { }
 
-    public static Result<T> Succesful(T action) =>
+    public static Result<T> Succeed(T action) =>
         new Result<T>()
         {
-            ResultItem = action,
-            ResultType = ResultType.Success
+            Value = action,
+            Succeeded = true
         };
 
-    public static Result<T> Failed(string error) =>
+    public static Result<T> Fail(string error) =>
         new Result<T>()
         {
-            ResultItem = default,
-            ResultType = ResultType.Fail,
+            Value = default,
+            Succeeded = false,
             Errors = new List<string>() { error }
         };
 
-    public static Result<T> Failed(IList<string> errors) =>
+    public static Result<T> Fail(IList<string> errors) =>
         new Result<T>()
         {
-            ResultItem = default,
-            ResultType = ResultType.Fail,
+            Value = default,
+            Succeeded = false,
             Errors = errors
         };
 
-    public T ResultItem { get; set; }
+    public T Value { get; set; }
 
-    public ResultType ResultType { get; set; }
+    public bool Succeeded { get; init; }
+
+    public bool Failed => !Succeeded;
 
     public IList<string> Errors { get; set; } = new List<string>();
 }

@@ -16,9 +16,9 @@ public class DepositParser : ActionWithAmountParser
     {
         var amountParseResult = ParseAmount(actionParameters);
 
-        if (amountParseResult.ResultType == Domain.Enums.ResultType.Fail)
-            return Result<IAction>.Failed(amountParseResult.Errors);
+        if (amountParseResult.Failed)
+            return Result<IAction>.Fail(amountParseResult.Errors);
 
-        return Result<IAction>.Succesful(actionFactory.CreateDepositAction(amountParseResult.ResultItem));
+        return Result<IAction>.Succeed(actionFactory.CreateDepositAction(amountParseResult.Value));
     }
 }

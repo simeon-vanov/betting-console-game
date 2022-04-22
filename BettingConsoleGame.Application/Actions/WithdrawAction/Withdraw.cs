@@ -17,11 +17,11 @@ public class Withdraw : IAction
         try
         {
             wallet.Withdraw(amount);
-            return Result<IActionResult>.Succesful(new WithdrawResult(wallet.Balance, amount));
+            return Result<IActionResult>.Succeed(new WithdrawResult(wallet.Balance, amount));
         }
         catch (NotEnoughMoneyException notEnoughMoneyException)
         {
-            return Result<IActionResult>.Failed(notEnoughMoneyException.Message);
+            return Result<IActionResult>.Fail(notEnoughMoneyException.Message);
         }
     }
 }

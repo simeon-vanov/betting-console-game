@@ -16,9 +16,9 @@ public class ExitParser : IActionParser
     {
         if (actionParameters.Length > 1)
         {
-            return Result<IAction>.Failed("Exit action does not accept any parameters.");
+            return Result<IAction>.Fail("Exit action does not accept any parameters.");
         }
 
-        return Result<IAction>.Succesful(actionFactory.CreateExitAction());
+        return Result<IAction>.Succeed(actionFactory.CreateExitAction());
     }
 }

@@ -24,22 +24,22 @@ public class Bet : IAction
 
             if (!game.IsValidBet(bet))
             {
-                return Result<IActionResult>.Failed($"Invalid bet amount: minimum bet is {game.MinimumBet} and maximum {game.MaximumBet}");
+                return Result<IActionResult>.Fail($"Invalid bet amount: minimum bet is {game.MinimumBet} and maximum {game.MaximumBet}");
             }
 
             wallet.Bet(bet);
             var result = game.PlayBets(bet);
             wallet.AcceptWin(result.WinAmount);
 
-            return Result<IActionResult>.Succesful(new BetResult(wallet.Balance, result.WinAmount, result.WinnerType));
+            return Result<IActionResult>.Succeed(new BetResult(wallet.Balance, result.WinAmount, result.WinnerType));
         }
         catch (NotEnoughMoneyException notEnoughMoneyException)
         {
-            return Result<IActionResult>.Failed(notEnoughMoneyException.Message);
+            return Result<IActionResult>.Fail(notEnoughMoneyException.Message);
         }
         catch (InvalidBetException invalidBetException)
         {
-            return Result<IActionResult>.Failed(invalidBetException.Message);
+            return Result<IActionResult>.Fail(invalidBetException.Message);
         }
     }
 }

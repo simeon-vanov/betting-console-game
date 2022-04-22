@@ -12,27 +12,27 @@ public class ConsoleOutputter : IActionResultOutputter
 {
     public void Output(Result<IActionResult> actionResult)
     {
-        if (actionResult.ResultType == ResultType.Fail)
+        if (actionResult.Failed)
         {
             OutputError(actionResult.Errors);
             return;
         }
 
-        if (actionResult.ResultItem.GetType() == typeof(DepositResult))
+        if (actionResult.Value.GetType() == typeof(DepositResult))
         {
-            OutputDepositResult(actionResult.ResultItem);
+            OutputDepositResult(actionResult.Value);
         }
-        else if (actionResult.ResultItem.GetType() == typeof(ExitResult))
+        else if (actionResult.Value.GetType() == typeof(ExitResult))
         {
-            OutputExitResult(actionResult.ResultItem);
+            OutputExitResult(actionResult.Value);
         }
-        else if (actionResult.ResultItem.GetType() == typeof(WithdrawResult))
+        else if (actionResult.Value.GetType() == typeof(WithdrawResult))
         {
-            OutputWithdrawResult(actionResult.ResultItem);
+            OutputWithdrawResult(actionResult.Value);
         }
-        else if (actionResult.ResultItem.GetType() == typeof(BetResult))
+        else if (actionResult.Value.GetType() == typeof(BetResult))
         {
-            OutputBetResult(actionResult.ResultItem);
+            OutputBetResult(actionResult.Value);
         }
 
         Console.WriteLine();
@@ -63,7 +63,7 @@ public class ConsoleOutputter : IActionResultOutputter
         if (exitResult.WonAmount < exitResult.LostAmount)
             Console.WriteLine($"Thanks for playing! You lost {exitResult.LostAmount - exitResult.WonAmount} today :( Better luck next time!");
         else if (exitResult.WonAmount > exitResult.LostAmount)
-            Console.WriteLine($"Thanks for playing! Woohooo you won {exitResult.WonAmount - exitResult.LostAmount} today :) Come back soon!");
+            Console.WriteLine($"Thanks for playing! You won {exitResult.WonAmount - exitResult.LostAmount} today :) Come back soon!");
         else
             Console.WriteLine($"Thanks for playing! Hope to see you again soon!");
     }
