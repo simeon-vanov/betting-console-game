@@ -1,4 +1,7 @@
-﻿using BettingConsoleGame.Application.Actions.Types;
+﻿using BettingConsoleGame.Application.Actions.BetAction;
+using BettingConsoleGame.Application.Actions.DepositAction;
+using BettingConsoleGame.Application.Actions.ExitAction;
+using BettingConsoleGame.Application.Actions.WithdrawAction;
 using BettingConsoleGame.Domain.Entities.Games;
 using BettingConsoleGame.Domain.ValueObjects;
 

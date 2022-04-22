@@ -1,5 +1,4 @@
-﻿using BettingConsoleGame.Application.Actions.ActionResult;
-using BettingConsoleGame.Domain.Entities;
+﻿using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.ValueObjects;
 

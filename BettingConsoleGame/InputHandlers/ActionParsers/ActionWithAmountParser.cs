@@ -1,6 +1,5 @@
 ﻿using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.InputHandlers;
 
 namespace BettingConsoleGame.InputHandlers.ActionParsers;
 

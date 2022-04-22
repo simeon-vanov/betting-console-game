@@ -1,8 +1,7 @@
-﻿using BettingConsoleGame.ActionParsers;
-using BettingConsoleGame.Application.Actions;
+﻿using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.InputHandlers;
+using BettingConsoleGame.InputHandlers.ActionParsers;
 
 namespace BettingConsoleGame.InputHandlers.ConsoleInput;
 
