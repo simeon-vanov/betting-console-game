@@ -36,7 +36,7 @@ public class ConsoleActionReader : IActionReader
         }
         catch(UnknownActionException unknownActionException)
         {
-            return Result<IAction>.Failed($"Unkown action {unknownActionException.Message}. Known actions are: deposit, withdraw, bet and exit");
+            return Result<IAction>.Failed($"{unknownActionException.Message}. Known actions are: deposit, withdraw, bet and exit");
         }
     }
 

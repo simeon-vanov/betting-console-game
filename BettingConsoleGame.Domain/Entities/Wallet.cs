@@ -21,7 +21,6 @@ public class Wallet
 
     public Money Lost { get; private set; }
 
-
     public void Deposit(Money amount)
     {
         this.Balance += amount;
