@@ -7,7 +7,7 @@ public class NotEnoughMoneyException : Exception
         
     }
 
-    public NotEnoughMoneyException(string? message) : base(message)
+    public NotEnoughMoneyException(string message) : base(message)
     {
     }
 }

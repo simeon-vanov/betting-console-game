@@ -1,4 +1,4 @@
-﻿namespace BettingConsoleGame.Domain.Entities.SlotGame;
+﻿namespace BettingConsoleGame.Domain.Entities.Games;
 
 public enum BetGameWinnerType
 {

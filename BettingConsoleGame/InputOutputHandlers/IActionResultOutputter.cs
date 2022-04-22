@@ -1,13 +1,14 @@
 ﻿using BettingConsoleGame.Application.Actions.Interfaces;
+using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
 public interface IActionResultOutputter
 {
-    void Output(IActionResult actionResult);
+    void Output(Result<IActionResult> actionResult);
 
-    void OutputMessage(string message);
+    void OutputError(string error);
 
-    void OutputErrors(IList<string> errors);
+    void OutputError(IList<string> errors);
 
 }

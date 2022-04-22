@@ -1,52 +1,63 @@
 ﻿using BettingConsoleGame.Application.Actions.ActionResult;
 using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.Enums;
+using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.InputOutputHandlers;
 
 public class ConsoleOutputter : IActionResultOutputter
 {
-    public void Output(IActionResult actionResult)
+    public void Output(Result<IActionResult> actionResult)
     {
-        if (actionResult.GetType() == typeof(DepositResult))
+        if(actionResult.ResultType == ResultType.Fail)
         {
-            OutputDepositResult(actionResult);
+            OutputError(actionResult.Errors);
+            return;
         }
-        else if (actionResult.GetType() == typeof(ExitResult))
+
+        if (actionResult.ResultItem.GetType() == typeof(DepositResult))
         {
-            OutputExitResult(actionResult);
+            OutputDepositResult(actionResult.ResultItem);
         }
-        else if (actionResult.GetType() == typeof(WithdrawResult))
+        else if (actionResult.ResultItem.GetType() == typeof(ExitResult))
         {
-            OutputWithdrawResult(actionResult);
+            OutputExitResult(actionResult.ResultItem);
         }
-        else if (actionResult.GetType() == typeof(BetResult))
+        else if (actionResult.ResultItem.GetType() == typeof(WithdrawResult))
         {
-            OutputBetResult(actionResult);
+            OutputWithdrawResult(actionResult.ResultItem);
+        }
+        else if (actionResult.ResultItem.GetType() == typeof(BetResult))
+        {
+            OutputBetResult(actionResult.ResultItem);
         }
 
         Console.WriteLine();
     }
 
-    public void OutputMessage(string message)
+    public void OutputError(string message)
     {
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(message);
+        Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void OutputErrors(IList<string> errors)
+    public void OutputError(IList<string> errors)
     {
         foreach (var error in errors)
-            Console.WriteLine(error);
+            OutputError(error);
+
+        Console.WriteLine();
     }
 
     private void OutputExitResult(IActionResult actionResult)
     {
         var exitResult = (ExitResult)actionResult;
 
-        if (exitResult.WonAmount < 0)
-            Console.WriteLine($"Thanks for playing! You lost {exitResult.WonAmount} today :( Better luck next time!");
-        else if (exitResult.WonAmount > 0)
-            Console.WriteLine($"Thanks for playing! Woohooo you won {exitResult.WonAmount} today :) Come back soon!");
+        if (exitResult.WonAmount < exitResult.LostAmount)
+            Console.WriteLine($"Thanks for playing! You lost {exitResult.LostAmount - exitResult.WonAmount} today :( Better luck next time!");
+        else if (exitResult.WonAmount > exitResult.LostAmount)
+            Console.WriteLine($"Thanks for playing! Woohooo you won {exitResult.WonAmount - exitResult.LostAmount} today :) Come back soon!");
         else
             Console.WriteLine($"Thanks for playing! Hope to see you again soon!");
     }
@@ -55,26 +66,20 @@ public class ConsoleOutputter : IActionResultOutputter
     {
         var depositResult = (DepositResult)actionResult;
 
-        if (depositResult.Type == ResultType.Success)
-            Console.WriteLine($"Your deposit of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
-        else
-            Console.WriteLine($"Your deposit of {depositResult.Deposited} failed. Your current balance is: {depositResult.NewBalance}");
+        Console.WriteLine($"Your deposit of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
     }
 
     private void OutputWithdrawResult(IActionResult actionResult)
     {
         var depositResult = (WithdrawResult)actionResult;
 
-        if (depositResult.Type == ResultType.Success)
-            Console.WriteLine($"Your withdrawal of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
-        else
-            Console.WriteLine($"Your withdrawal of {depositResult.Deposited} failed. Your current balance is: {depositResult.NewBalance}");
+        Console.WriteLine($"Your withdrawal of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
     }
 
     private void OutputBetResult(IActionResult actionResult)
     {
         var bestResult = (BetResult)actionResult;
-        
+
         if (bestResult.WinAmount > 0)
         {
             Console.WriteLine($"Congrats - you won {bestResult.WinAmount}! Your current balance is: {bestResult.NewBalance}");

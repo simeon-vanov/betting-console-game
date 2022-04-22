@@ -12,10 +12,15 @@ public class Wallet
     {
         this.Balance = balance;
         this.Won = Money.ZeroDollars;
+        this.Lost = Money.ZeroDollars;
     }
 
     public Money Balance { get; private set; }
+
     public Money Won { get; private set; }
+
+    public Money Lost { get; private set; }
+
 
     public void Deposit(Money amount)
     {
@@ -25,7 +30,7 @@ public class Wallet
     public void Withdraw(Money amount)
     {
         if (amount > this.Balance)
-            throw new NotEnoughMoneyException();
+            throw new NotEnoughMoneyException($"Insufficient funds. {Balance} is not enough to withdraw {amount}.");
         
         this.Balance -= amount;
     }
@@ -33,9 +38,9 @@ public class Wallet
     public void Bet(Money betAmount)
     {
         if (betAmount > this.Balance)
-            throw new NotEnoughMoneyException();
+            throw new NotEnoughMoneyException($"Insufficient funds. {Balance} is not enough to bet {betAmount}.");
 
-        this.Won -= betAmount;
+        this.Lost += betAmount;
         this.Balance -= betAmount;
     }
 

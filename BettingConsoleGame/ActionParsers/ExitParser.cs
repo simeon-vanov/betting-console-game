@@ -1,12 +1,17 @@
-﻿using BettingConsoleGame.Application.Actions.Types;
-using BettingConsoleGame.Application.Actions.Interfaces;
-using BettingConsoleGame.Exceptions;
+﻿using BettingConsoleGame.Application.Actions.Interfaces;
 using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.ActionParsers;
 
 public class ExitParser : IConsoleActionParser
 {
+    private readonly IActionFactory actionFactory;
+
+    public ExitParser(IActionFactory actionFactory)
+    {
+        this.actionFactory = actionFactory;
+    }
+
     public Result<IAction> Parse(string[] actionParameters)
     {
         if (actionParameters.Length > 1)
@@ -14,6 +19,6 @@ public class ExitParser : IConsoleActionParser
             return Result<IAction>.Failed("Exit action does not accept any parameters.");
         }
 
-        return Result<IAction>.Succesful(new ExitAction());
+        return Result<IAction>.Succesful(actionFactory.CreateExitAction());
     }
 }
