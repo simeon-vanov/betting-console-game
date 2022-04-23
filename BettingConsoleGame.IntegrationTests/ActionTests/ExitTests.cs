@@ -25,7 +25,7 @@ public class ExitTests : TestBase
         ExecuteAction(wallet, $"exit");
 
         //Assert
-        VerifyEndUserSuccessMessage(Money.Dollars(5));
+        VerifyPositiveMessage(Money.Dollars(5));
     }
 
     [Test]
@@ -79,7 +79,7 @@ public class ExitTests : TestBase
         WriteLineMock.Verify(x => x.WriteLine($"Thanks for playing! Hope to see you again soon!", ConsoleColor.White), Times.Once);
     }
 
-    private static void VerifyEndUserSuccessMessage(Money wonAmount)
+    private static void VerifyPositiveMessage(Money wonAmount)
     {
         WriteLineMock.Verify(x => x.WriteLine($"Thanks for playing! You won {wonAmount} today :) Come back soon!", ConsoleColor.White), Times.Once);
     }
