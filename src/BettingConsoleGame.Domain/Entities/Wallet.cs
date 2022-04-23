@@ -43,9 +43,9 @@ public class Wallet
         this.Balance -= betAmount;
     }
 
-    public void AcceptWin(Money betAmount)
+    public void AcceptWin(Money winAmount)
     {
-        this.Won += betAmount;
-        this.Balance += betAmount;
+        this.Won += winAmount;
+        this.Balance += winAmount;
     }
 }
