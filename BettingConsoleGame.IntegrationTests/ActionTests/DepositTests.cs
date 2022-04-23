@@ -11,8 +11,10 @@ using static BettingConsoleGame.IntegrationTests.Testing;
 
 namespace BettingConsoleGame.IntegrationTests.ActionTests;
 
-public class DepositTests : TestBase
+public class DepositTests : ActionWithAmountTestBase
 {
+    protected override string ActionName => "deposit";
+
     [Test]
     [TestCase(30)]
     [TestCase(15.50)]
@@ -34,55 +36,6 @@ public class DepositTests : TestBase
         DepositAndVerifyBalance(wallet, Money.Dollars(0.01m), Money.Dollars(20.01m));
     }
 
-    [Test]
-    public void FailWhenMoreThanOneParameter()
-    {
-        var wallet = Wallet.NonEmpty(Money.ZeroDollars);
-
-        var result = ExecuteAction(wallet, "deposit 10 invalid");
-
-        VerifyFailedResult(result);
-        VerifyEndUserFailedMessage($"Action accepts only amount as parameter.");
-        VerifyWalletBalance(wallet, Money.ZeroDollars);
-    }
-
-    [Test]
-    public void FailWhenInvalidAmount()
-    {
-        var wallet = Wallet.NonEmpty(Money.ZeroDollars);
-
-        var result = ExecuteAction(wallet, "deposit 10.5432");
-
-        VerifyFailedResult(result);
-        VerifyEndUserFailedMessage($"Amount must be in the format 0.00.");
-        VerifyWalletBalance(wallet, Money.ZeroDollars);
-    }
-
-    [Test]
-    public void FailWhenNegativeAmount()
-    {
-        var wallet = Wallet.NonEmpty(Money.ZeroDollars);
-
-        var result = ExecuteAction(wallet, "deposit -10");
-
-        VerifyFailedResult(result);
-        VerifyEndUserFailedMessage($"Amount must be positive number bigger than 0.");
-        VerifyWalletBalance(wallet, Money.ZeroDollars);
-    }
-
-    [Test]
-    public void FailWhenZeroAmount()
-    {
-        var wallet = Wallet.NonEmpty(Money.ZeroDollars);
-
-        var result = ExecuteAction(wallet, "deposit 0");
-
-        VerifyFailedResult(result);
-        VerifyEndUserFailedMessage($"Amount must be positive number bigger than 0.");
-        VerifyWalletBalance(wallet, Money.ZeroDollars);
-    }
-
-
     private static void DepositAndVerifyBalance(Wallet wallet, Money depositAmount, Money expectedBalance)
     {
         var result = ExecuteAction(wallet, $"deposit {depositAmount.Amount}");
@@ -92,13 +45,6 @@ public class DepositTests : TestBase
         VerifyWalletBalance(wallet, expectedBalance);
     }
 
-    private static void VerifyFailedResult(Result<IActionResult> result)
-    {
-        result.Failed.Should().BeTrue();
-        result.Value.Should().BeNull();
-        result.Errors.Should().HaveCountGreaterThan(0);
-    }
-
     private static void VerifySuccessResult(Result<IActionResult> result, Money depositAmount, Money expectedBalance)
     {
         result.Succeeded.Should().BeTrue();
@@ -106,11 +52,6 @@ public class DepositTests : TestBase
         var withdrawnResult = (DepositResult)result.Value;
         withdrawnResult.Deposited.Should().Be(depositAmount);
         withdrawnResult.NewBalance.Should().Be(expectedBalance);
-    }
-
-    private static void VerifyEndUserFailedMessage(string message)
-    {
-        WriteLineMock.Verify(x => x.WriteLine(message, ConsoleColor.Red), Times.Once);
     }
 
     private static void VerifyEndUserSuccessMessage(Money depositAmount, Money expectedBalance)

@@ -24,7 +24,7 @@ public class Bet : IAction
 
             if (!game.IsValidBet(bet))
             {
-                return Result<IActionResult>.Fail($"Invalid bet amount: minimum bet is {game.MinimumBet} and maximum {game.MaximumBet}");
+                return Result<IActionResult>.Fail($"Invalid bet amount: minimum bet is {game.MinimumBet} and maximum {game.MaximumBet}.");
             }
 
             wallet.Bet(bet);
