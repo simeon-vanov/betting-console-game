@@ -12,6 +12,7 @@ public static class DependencyInjection
     public static IServiceCollection AddConsole(this IServiceCollection services)
     {
         services.AddScoped<GameLoop>();
+        services.AddScoped<GameActionHandler>();
         services.AddScoped<IActionReader, ActionReader>();
         services.AddScoped<IActionResultOutputter, ActionOutputter>();
         services.AddScoped<IInputHandler, ConsoleReadLine>();

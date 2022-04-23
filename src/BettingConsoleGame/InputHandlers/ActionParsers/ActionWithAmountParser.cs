@@ -31,6 +31,6 @@ public abstract class ActionWithAmountParser : IActionParser
         if (decimalPlace.Length > 1 && decimalPlace[1].Length > 2)
             return Result<Money>.Fail("Amount must be in the format 0.00.");
 
-        return Result<Money>.Succeed(new Money(amount, Currency.USDollar));
+        return Result<Money>.Succeed(Money.Dollars(amount));
     }
 }

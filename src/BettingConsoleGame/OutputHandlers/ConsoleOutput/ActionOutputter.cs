@@ -82,7 +82,7 @@ public class ActionOutputter : IActionResultOutputter
     {
         var depositResult = (WithdrawResult)actionResult;
 
-        outputHandler.WriteLine($"Your withdrawal of {depositResult.Deposited} was successful. Your current balance is: {depositResult.NewBalance}");
+        outputHandler.WriteLine($"Your withdrawal of {depositResult.Withdrawn} was successful. Your current balance is: {depositResult.NewBalance}");
     }
 
     private void OutputBetResult(IActionResult actionResult)

@@ -15,8 +15,8 @@ public class BetGame
         this.numberRandomizerService = numberRandomizerService;
     }
 
-    public Money MinimumBet => Money.OneDollar;
-    public Money MaximumBet => Money.TenDollars;
+    public Money MinimumBet => Money.Dollars(1);
+    public Money MaximumBet => Money.Dollars(10);
 
     public bool IsValidBet(Money bet)
     {
@@ -32,7 +32,7 @@ public class BetGame
     {
         if (!IsValidBet(bet))
         {
-            throw new InvalidBetException(Money.OneDollar, Money.TenDollars);
+            throw new InvalidBetException(MinimumBet, MaximumBet);
         }
 
         var chance = numberRandomizerService.GetRandomDouble(0, 100);

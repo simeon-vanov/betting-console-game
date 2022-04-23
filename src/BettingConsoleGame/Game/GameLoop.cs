@@ -8,12 +8,12 @@ namespace BettingConsoleGame.Game;
 
 public class GameLoop
 {
-    private readonly IActionReader actionReader;
+    private readonly GameActionHandler gameActionHandler;
     private readonly IActionResultOutputter actionResultOutputter;
 
-    public GameLoop(IActionReader actionReader, IActionResultOutputter actionResultOutputter)
+    public GameLoop(GameActionHandler gameActionHandler, IActionResultOutputter actionResultOutputter)
     {
-        this.actionReader = actionReader;
+        this.gameActionHandler = gameActionHandler;
         this.actionResultOutputter = actionResultOutputter;
     }
 
@@ -23,20 +23,10 @@ public class GameLoop
         {
             try
             {
-                var actionParseResult = actionReader.GetNextAction();
+                var actionResult = gameActionHandler.Execute(wallet);
 
-                if (actionParseResult.Failed)
-                {
-                    actionResultOutputter.OutputError(actionParseResult.Errors);
-                    continue;
-                }
-
-                var action = actionParseResult.Value;
-                var result = action.Execute(wallet);
-
-                actionResultOutputter.Output(result);
-
-                if (action.GetType() == typeof(Exit))
+                if (actionResult.Succeeded && 
+                    actionResult.Value.GetType() == typeof(ExitResult))
                 {
                     return;
                 }

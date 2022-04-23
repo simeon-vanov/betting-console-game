@@ -8,6 +8,6 @@ namespace BettingConsoleGame.InputHandlers
 {
     public interface IInputHandler
     {
-        public string ReadLine { get; set; }
+        public string ReadLine();
     }
 }

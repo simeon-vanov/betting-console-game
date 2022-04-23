@@ -6,6 +6,8 @@ public record Money
     public static Money OneDollar => new Money(1, Currency.USDollar);
     public static Money TenDollars => new Money(10, Currency.USDollar);
 
+    public static Money Dollars(decimal amount) => new Money(amount, Currency.USDollar);
+
     public Money(decimal amount, Currency currency)
     {
         this.Amount = decimal.Round(amount, 2);
