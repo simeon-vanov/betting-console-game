@@ -1,10 +1,9 @@
-﻿namespace BettingConsoleGame.InputHandlers.ConsoleInput
+﻿namespace BettingConsoleGame.InputHandlers.ConsoleInput;
+
+public class ConsoleReadLine : IInputHandler
 {
-    public class ConsoleReadLine : IInputHandler
+    public string ReadLine()
     {
-        public string ReadLine()
-        {
-            return Console.ReadLine();
-        }
+        return Console.ReadLine();
     }
 }

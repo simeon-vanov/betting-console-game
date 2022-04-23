@@ -2,23 +2,28 @@
 using BettingConsoleGame.Domain.Exceptions;
 using BettingConsoleGame.Domain.ValueObjects;
 using BettingConsoleGame.InputHandlers.ActionParsers;
+using BettingConsoleGame.OutputHandlers;
 
 namespace BettingConsoleGame.InputHandlers.ConsoleInput;
 
-public class ConsoleActionReader : IActionReader
+public class ActionReader : IActionReader
 {
     private readonly IActionFactory actionFactory;
+    private readonly IInputHandler inputHandler;
+    private readonly IOutputHandler outputHandler;
 
-    public ConsoleActionReader(IActionFactory actionFactory)
+    public ActionReader(IActionFactory actionFactory, IInputHandler inputHandler, IOutputHandler outputHandler)
     {
         this.actionFactory = actionFactory;
+        this.inputHandler = inputHandler;
+        this.outputHandler = outputHandler;
     }
 
     public Result<IAction> GetNextAction()
     {
-        Console.WriteLine("Please, Submit Action: ");
+        outputHandler.WriteLine("Please, Submit Action: ");
 
-        var actionString = Console.ReadLine();
+        var actionString = inputHandler.ReadLine();
 
         if (string.IsNullOrEmpty(actionString))
         {

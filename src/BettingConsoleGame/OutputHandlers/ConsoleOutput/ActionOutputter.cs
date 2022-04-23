@@ -8,11 +8,11 @@ using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.OutputHandlers.ConsoleOutput;
 
-public class ConsoleOutputter : IActionResultOutputter
+public class ActionOutputter : IActionResultOutputter
 {
     private readonly IOutputHandler outputHandler;
 
-    public ConsoleOutputter(IOutputHandler outputHandler)
+    public ActionOutputter(IOutputHandler outputHandler)
     {
         this.outputHandler = outputHandler;
     }
