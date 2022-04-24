@@ -12,7 +12,7 @@ using static Testing;
 public class FullGameTests : TestBase
 {
     [Test]
-    public void DepositBetWithdrawExit()
+    public void Should_HaveWon10DollarsAndHaveBalanceOf15_When_Deposit15_Then_Bet10AndWin20_Then_Withdraw10_Then_Exit()
     {
         var wallet = Wallet.Empty;
 
@@ -29,7 +29,7 @@ public class FullGameTests : TestBase
     }
 
     [Test]
-    public void DepositDepositBetBetWithdrawWithdrawExit()
+    public void Should_HaveWon10DollarsAndHaveBalanceOf10_When_Deposit15_Then_Withdraw5_Then_Bet10AndWin20_Then_Bet5AndWin10_Then_Withdraw10_Then_Exit()
     {
         var wallet = Wallet.Empty;
 

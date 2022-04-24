@@ -1,10 +1,8 @@
 using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Application.Actions.BetAction;
-using BettingConsoleGame.Application.Actions.WithdrawAction;
 using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.Entities.Games.PlayBets;
 using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.Game;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -22,7 +20,7 @@ public class BetTests : ActionWithAmountTestBase
     [TestCase(0.1)]
     [TestCase(9.9)]
     [TestCase(5)]
-    public void ShouldHave10PercentChanceForBigWinUpTo10TimesTheBet(double randomChance)
+    public void Should_HaveBigWinUpTo10TimesTheBet_When_ChanceIsBelow10Percent(double randomChance)
     {
         //Arrange
         var initialWalletDollars = Money.Dollars(10);
@@ -47,7 +45,7 @@ public class BetTests : ActionWithAmountTestBase
     [TestCase(10)]
     [TestCase(49.9)]
     [TestCase(25)]
-    public void ShouldHave40PercentChanceForWinUpTo2TimesTheBet(double randomChance)
+    public void Should_WinUpTo2TimesTheBet_When_ChanceAbove10PercentAndBelow50Percent(double randomChance)
     {
         // Arrange
         var initialWalletDollars = Money.Dollars(10);
@@ -71,7 +69,7 @@ public class BetTests : ActionWithAmountTestBase
     [TestCase(50.1)]
     [TestCase(99.9)]
     [TestCase(75)]
-    public void ShouldHave50PercentChanceForLosingTheBet(double randomChance)
+    public void Should_Lose_WhenChanceIsAbove50Percent(double randomChance)
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));
@@ -90,7 +88,7 @@ public class BetTests : ActionWithAmountTestBase
     }
 
     [Test]
-    public void ShouldInceaseLostAndWonBalanceOfWalletWhenMultipleBets()
+    public void Should_Win60DollarsAndLose35Dollars_When_Bet5AndWin10_Then_Bet10_AndWin20_Then_Bet10AndLose_Then_Bet10AndWin30()
     {
         // Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));
@@ -118,7 +116,7 @@ public class BetTests : ActionWithAmountTestBase
     }
 
     [Test]
-    public void ShouldNotAllowBetWhenInsufficientFunds()
+    public void Should_NotAllowBet_When_InsufficientFunds()
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(5));
@@ -138,7 +136,7 @@ public class BetTests : ActionWithAmountTestBase
     [TestCase(0.99)]
     [TestCase(10.01)]
     [TestCase(20)]
-    public void ShouldNotAllowBetWhenInvalidBetAbove10DollarsOrBelow1Dollar(decimal betAmount)
+    public void Should_NotAllowBet_When_InvalidBetAbove10DollarsOrBelow1Dollar(decimal betAmount)
     {
         //Arrange
         var initialAmount = Money.Dollars(15);
