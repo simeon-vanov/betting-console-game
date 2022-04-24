@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Test.Helpers", "BettingConsoleGame.Test.Helpers\BettingConsoleGame.Test.Helpers.csproj", "{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Application.UnitTests", "BettingConsoleGame.Application.UnitTests\BettingConsoleGame.Application.UnitTests.csproj", "{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{65A75357-B647-49F1-953B-44EFC2E25E45} = {27778085-D75E-4EAB-8618-CA1C653BB683}
 		{B2367143-F037-4427-A5E7-79001D544FDD} = {27778085-D75E-4EAB-8618-CA1C653BB683}
 		{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D} = {27778085-D75E-4EAB-8618-CA1C653BB683}
+		{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E} = {27778085-D75E-4EAB-8618-CA1C653BB683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1835D4A7-86FC-4012-812A-11EE5768172F}
