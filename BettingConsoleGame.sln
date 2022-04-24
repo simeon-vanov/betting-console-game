@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BettingConsoleGame.Test.Hel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BettingConsoleGame.Application.UnitTests", "tests\BettingConsoleGame.Application.UnitTests\BettingConsoleGame.Application.UnitTests.csproj", "{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Domain.UnitTests", "BettingConsoleGame.Domain.UnitTests\BettingConsoleGame.Domain.UnitTests.csproj", "{181233A6-19C4-4215-AC4B-76B5726677DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Domain.UnitTests", "tests\BettingConsoleGame.Domain.UnitTests\BettingConsoleGame.Domain.UnitTests.csproj", "{181233A6-19C4-4215-AC4B-76B5726677DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

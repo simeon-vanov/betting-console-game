@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\BettingConsoleGame.Domain\BettingConsoleGame.Domain.csproj" />
-    <ProjectReference Include="..\tests\BettingConsoleGame.Test.Helpers\BettingConsoleGame.Test.Helpers.csproj" />
+    <ProjectReference Include="..\..\src\BettingConsoleGame.Domain\BettingConsoleGame.Domain.csproj" />
+    <ProjectReference Include="..\BettingConsoleGame.Test.Helpers\BettingConsoleGame.Test.Helpers.csproj" />
   </ItemGroup>
 
 </Project>
