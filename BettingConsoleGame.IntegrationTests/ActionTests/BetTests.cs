@@ -69,7 +69,7 @@ public class BetTests : ActionWithAmountTestBase
     [TestCase(50.1)]
     [TestCase(99.9)]
     [TestCase(75)]
-    public void Should_Lose_WhenChanceIsAbove50Percent(double randomChance)
+    public void Should_Lose_When_ChanceIsAbove50Percent(double randomChance)
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));

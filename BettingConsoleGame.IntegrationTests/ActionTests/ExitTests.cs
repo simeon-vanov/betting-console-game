@@ -1,8 +1,5 @@
-﻿using BettingConsoleGame.Application.Actions;
-using BettingConsoleGame.Application.Actions.ExitAction;
-using BettingConsoleGame.Domain.Entities;
+﻿using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.ValueObjects;
-using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -14,7 +11,7 @@ using static Testing;
 public class ExitTests : TestBase
 {
     [Test]
-    public void ShouldShowPositiveMessageWhenPlayerWonMoney()
+    public void Should_ShowPositiveMessage_When_PlayerWonMoneyAndExits()
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));
@@ -29,7 +26,7 @@ public class ExitTests : TestBase
     }
 
     [Test]
-    public void ShouldShowEncourigingMessageWhenPlayerLostMoney()
+    public void Should_ShowEncourigingMessage_When_PlayerLostMoneyAndExits()
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));
@@ -44,7 +41,7 @@ public class ExitTests : TestBase
     }
 
     [Test]
-    public void ShouldShowThankYouMessageWhenPlayerDidNotWinOrLose()
+    public void Should_ShowThankYouMessage_When_PlayerDidNotWinOrLoseAndExits()
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));
@@ -57,7 +54,7 @@ public class ExitTests : TestBase
     }
 
     [Test]
-    public void ShouldFailWhenMultipleParametersArePassed()
+    public void Should_FailToExit_When_MultipleParametersArePassed()
     {
         //Arrange
         var wallet = Wallet.NonEmpty(Money.Dollars(10));

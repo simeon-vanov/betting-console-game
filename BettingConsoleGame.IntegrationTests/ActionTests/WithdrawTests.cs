@@ -2,7 +2,6 @@ using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Application.Actions.WithdrawAction;
 using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.Game;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -20,7 +19,7 @@ public class WithdrawTests : ActionWithAmountTestBase
     [TestCase(30, 30, 0)]
     [TestCase(30, 15.50, 14.50)]
     [TestCase(21.14, 21.13, 0.01)]
-    public void WalletShouldBeAbleToWithdrawWhenBalanceIsSufficient(decimal walletAmount, decimal withdraw, decimal newBalance)
+    public void Should_BeAbleToWithdraw_WhenAmountIsSufficient(decimal walletAmount, decimal withdraw, decimal newBalance)
     {
         var initialWalletDollars = Money.Dollars(walletAmount);
         var wallet = Wallet.NonEmpty(initialWalletDollars);
@@ -29,7 +28,7 @@ public class WithdrawTests : ActionWithAmountTestBase
     }
 
     [Test]
-    public void ShouldAllowMultipleWithdrawWhenSufficientAmount()
+    public void Should_BeAbleToWithdrawMultipleTimes_WhenAmountIsSufficient()
     {
         var initialAmount = Money.Dollars(50);
         var wallet = Wallet.NonEmpty(initialAmount);
@@ -41,7 +40,7 @@ public class WithdrawTests : ActionWithAmountTestBase
     }
 
     [Test]
-    public void ShouldNotAllowWithdrawWhenInsufficientFunds()
+    public void Should_NotAllowWithdraw_When_InsufficientFunds()
     {
         var initialAmount = Money.Dollars(50);
         var wallet = Wallet.NonEmpty(initialAmount);

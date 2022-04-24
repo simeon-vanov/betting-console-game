@@ -2,7 +2,6 @@ using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Application.Actions.DepositAction;
 using BettingConsoleGame.Domain.Entities;
 using BettingConsoleGame.Domain.ValueObjects;
-using BettingConsoleGame.Game;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
@@ -19,7 +18,7 @@ public class DepositTests : ActionWithAmountTestBase
     [TestCase(30)]
     [TestCase(15.50)]
     [TestCase(0.01)]
-    public void WalletShouldBeAbleToDeposit(decimal amount)
+    public void Should_BeAbleToDeposit_WhenValidAmount(decimal amount)
     {
         var wallet = Wallet.Empty;
 
@@ -27,7 +26,7 @@ public class DepositTests : ActionWithAmountTestBase
     }
 
     [Test]
-    public void WalletShouldBeAbleToDepositMultipleTimes()
+    public void Should_BeAbleToDepositMultipleTimes_WhenValidAmount()
     {
         var wallet = Wallet.Empty;
 
