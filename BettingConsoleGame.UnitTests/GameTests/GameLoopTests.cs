@@ -29,7 +29,7 @@ namespace BettingConsoleGame.UnitTests
         }
 
         [Test]
-        public void ContinueUntilExit()
+        public void Should_ContinueAsikngForAction_When_UntilExit()
         {
             // Arrange
             var wallet = Wallet.Empty;
@@ -51,7 +51,7 @@ namespace BettingConsoleGame.UnitTests
         }
 
         [Test]
-        public void CatchGenericExceptionsAndOutputSomethingWentWrongThenContinueWithNextAction()
+        public void Should_OutputSomethingWentWrongThenContinueWithNextAction_When_NotCaughtExceptionIsThrown()
         {
             // Arrange
             var wallet = Wallet.Empty;
@@ -72,7 +72,7 @@ namespace BettingConsoleGame.UnitTests
         }
 
         [Test]
-        public void ContinueToNextActionEventWhenActionFailed()
+        public void Should_ContinueToNextActionAndNotShowSomethingWentWrong_When_ActionFailedWithoutException()
         {
             // Arrange
             var wallet = Wallet.Empty;

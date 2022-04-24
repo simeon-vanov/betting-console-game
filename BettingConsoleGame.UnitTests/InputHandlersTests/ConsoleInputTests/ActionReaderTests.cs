@@ -28,7 +28,7 @@ public class ActionReaderTests
     }
 
     [Test]
-    public void ReturnFailResultWithKnownActionsWhenInputIsEmpty()
+    public void Should_ReturnFailResultWithKnownActionsErrorsMessage_When_InputIsEmpty()
     {
         // Arrange
         inputHandlerMock.Setup(x => x.ReadLine()).Returns(string.Empty);
@@ -42,7 +42,7 @@ public class ActionReaderTests
     }
 
     [Test]
-    public void OutputPleaseSubmitActionEachTimeActionIsNeeded()
+    public void Should_OutputPleaseSubmitAction_When_EachTimeActionIsNeeded()
     {
         // Arrange
         inputHandlerMock.Setup(x => x.ReadLine()).Returns(string.Empty);

@@ -42,7 +42,7 @@ public class ExitParserTests
     }
 
     [Test]
-    public void Parse_ShouldReturnFaile_WhenMultipleArguments()
+    public void Parse_ShouldReturnFail_WhenMultipleArguments()
     {
         // Arrange
         var input = "exit";

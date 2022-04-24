@@ -18,7 +18,7 @@ public abstract class ActionWithAmountParserTests<T>
     [TestCase("$10")]
     [TestCase("10$")]
     [TestCase("10.55$")]
-    public void Parse_ShouldReturnAction_WhenValidAmount(string amount)
+    public void Should_ReturnAction_When_ValidAmount(string amount)
     {
         // Act
         var actionParser = sut.Parse(new string[] { actionParameter, amount });
@@ -33,7 +33,7 @@ public abstract class ActionWithAmountParserTests<T>
     [TestCase("-10", "Amount must be positive number bigger than 0.")]
     [TestCase("0", "Amount must be positive number bigger than 0.")]
     [TestCase("10.234", "Amount must be in the format 0.00.")]
-    public void Parse_ShouldReturnFail_WhenInvalidAmountOrNotPositive(string amount, string validationMessage)
+    public void Should_ReturnFail_When_InvalidAmountOrNotPositive(string amount, string validationMessage)
     {
         // Act
         var actionParser = sut.Parse(new string[] { actionParameter, amount });
@@ -45,7 +45,7 @@ public abstract class ActionWithAmountParserTests<T>
     }
 
     [Test]
-    public void Parse_ShouldReturnFail_WhenMultipleArguments()
+    public void Should_ReturnFail_When_MultipleArguments()
     {
         // Act
         var actionParser = sut.Parse(new string[] { actionParameter, "10", "20" });
