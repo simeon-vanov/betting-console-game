@@ -23,11 +23,15 @@ public class Wallet
 
     public void Deposit(Money amount)
     {
+        this.ValidateAmountIsPositive(amount);
+
         this.Balance += amount;
     }
 
     public void Withdraw(Money amount)
     {
+        this.ValidateAmountIsPositive(amount);
+        
         if (amount > this.Balance)
             throw new NotEnoughMoneyException($"Insufficient funds. {Balance} is not enough to withdraw {amount}.");
         
@@ -36,6 +40,7 @@ public class Wallet
 
     public void Bet(Money betAmount)
     {
+        this.ValidateAmountIsPositive(betAmount);        
         if (betAmount > this.Balance)
             throw new NotEnoughMoneyException($"Insufficient funds. {Balance} is not enough to bet {betAmount}.");
 
@@ -47,5 +52,13 @@ public class Wallet
     {
         this.Won += winAmount;
         this.Balance += winAmount;
+    }
+
+    private void ValidateAmountIsPositive(Money amount)
+    {
+        if (amount <= 0)
+        {
+            throw new InvalidAmountException($"Amount cannot be negative.");
+        }
     }
 }

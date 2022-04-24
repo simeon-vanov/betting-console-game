@@ -83,7 +83,7 @@ public record Money
 
     public static bool operator <=(Money money, decimal amount)
     {
-        return (money?.Amount ?? 0) >= amount;
+        return (money?.Amount ?? 0) <= amount;
     }
 
     public static bool operator <(Money money, decimal amount)
