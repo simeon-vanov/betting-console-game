@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D1EA9B94-A52
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{27778085-D75E-4EAB-8618-CA1C653BB683}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BettingConsoleGame.IntegrationTests", "BettingConsoleGame.IntegrationTests\BettingConsoleGame.IntegrationTests.csproj", "{65A75357-B647-49F1-953B-44EFC2E25E45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BettingConsoleGame.IntegrationTests", "tests\BettingConsoleGame.IntegrationTests\BettingConsoleGame.IntegrationTests.csproj", "{65A75357-B647-49F1-953B-44EFC2E25E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.UnitTests", "BettingConsoleGame.UnitTests\BettingConsoleGame.UnitTests.csproj", "{B2367143-F037-4427-A5E7-79001D544FDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.UnitTests", "tests\BettingConsoleGame.UnitTests\BettingConsoleGame.UnitTests.csproj", "{B2367143-F037-4427-A5E7-79001D544FDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Test.Helpers", "BettingConsoleGame.Test.Helpers\BettingConsoleGame.Test.Helpers.csproj", "{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Test.Helpers", "tests\BettingConsoleGame.Test.Helpers\BettingConsoleGame.Test.Helpers.csproj", "{C69A59A0-18A1-49B9-9F94-D105F0D3FB3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Application.UnitTests", "BettingConsoleGame.Application.UnitTests\BettingConsoleGame.Application.UnitTests.csproj", "{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BettingConsoleGame.Application.UnitTests", "tests\BettingConsoleGame.Application.UnitTests\BettingConsoleGame.Application.UnitTests.csproj", "{F3EF8077-2F3D-4CC8-B7A8-A4EEAA06092E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
