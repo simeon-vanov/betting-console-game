@@ -1,7 +1,5 @@
 ﻿using AutoFixture;
 using BettingConsoleGame.Application.Actions;
-using BettingConsoleGame.Application.Actions.BetAction;
-using BettingConsoleGame.Application.Actions.DepositAction;
 using BettingConsoleGame.Application.Actions.WithdrawAction;
 using BettingConsoleGame.Domain.ValueObjects;
 using BettingConsoleGame.InputHandlers.ActionParsers;

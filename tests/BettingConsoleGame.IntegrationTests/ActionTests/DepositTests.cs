@@ -6,9 +6,10 @@ using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using System;
-using static BettingConsoleGame.IntegrationTests.Testing;
 
 namespace BettingConsoleGame.IntegrationTests.ActionTests;
+
+using static Testing;
 
 public class DepositTests : ActionWithAmountTestBase
 {

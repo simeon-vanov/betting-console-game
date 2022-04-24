@@ -1,5 +1,4 @@
 ﻿using BettingConsoleGame.InputHandlers;
-using BettingConsoleGame.InputHandlers.ActionParsers;
 using FluentAssertions;
 using NUnit.Framework;
 

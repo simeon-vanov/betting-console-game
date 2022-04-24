@@ -3,7 +3,6 @@ using BettingConsoleGame.Application.Actions.BetAction;
 using BettingConsoleGame.Application.Actions.DepositAction;
 using BettingConsoleGame.Application.Actions.ExitAction;
 using BettingConsoleGame.Application.Actions.WithdrawAction;
-using BettingConsoleGame.Domain.Enums;
 using BettingConsoleGame.Domain.ValueObjects;
 
 namespace BettingConsoleGame.OutputHandlers.ConsoleOutput;

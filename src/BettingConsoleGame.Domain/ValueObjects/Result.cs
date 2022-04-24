@@ -1,6 +1,4 @@
-﻿using BettingConsoleGame.Domain.Enums;
-
-namespace BettingConsoleGame.Domain.ValueObjects;
+﻿namespace BettingConsoleGame.Domain.ValueObjects;
 
 public class Result<T>
 {
