@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using AutoFixture.AutoMoq;
-using BettingConsoleGame.Test.Helpers.AutoFixtureHelpers;
 
 namespace BettingConsoleGame.Test.Helpers
 {

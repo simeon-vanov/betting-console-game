@@ -1,3 +1,4 @@
+using AutoFixture;
 using BettingConsoleGame.Application.Actions;
 using BettingConsoleGame.Application.Actions.BetAction;
 using BettingConsoleGame.Application.Actions.DepositAction;
@@ -7,7 +8,6 @@ using BettingConsoleGame.Domain.ValueObjects;
 using BettingConsoleGame.Game;
 using BettingConsoleGame.OutputHandlers;
 using BettingConsoleGame.Test.Helpers;
-using BettingConsoleGame.Test.Helpers.AutoFixtureHelpers;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -33,10 +33,9 @@ namespace BettingConsoleGame.UnitTests
         {
             // Arrange
             var wallet = Wallet.Empty;
-            
-            var depositResult= FixtureFactory.CreateFixture().For<DepositResult>().Create();
-            var betResult = FixtureFactory.CreateFixture().For<BetResult>().Create();
-            var exitResult = FixtureFactory.CreateFixture().For<ExitResult>().Create();
+            var depositResult= FixtureFactory.CreateFixture().Create<DepositResult>();
+            var betResult = FixtureFactory.CreateFixture().Create<BetResult>();
+            var exitResult = FixtureFactory.CreateFixture().Create<ExitResult>();
             
             this.gameActionHandlerMock
                 .SetupSequence(x=> x.Execute(wallet))
@@ -57,7 +56,7 @@ namespace BettingConsoleGame.UnitTests
             // Arrange
             var wallet = Wallet.Empty;
 
-            var exitResult = FixtureFactory.CreateFixture().For<ExitResult>().Create();
+            var exitResult = FixtureFactory.CreateFixture().Create<ExitResult>();
 
             this.gameActionHandlerMock
                 .SetupSequence(x => x.Execute(wallet))
@@ -78,8 +77,8 @@ namespace BettingConsoleGame.UnitTests
             // Arrange
             var wallet = Wallet.Empty;
 
-            var depositSuccess = FixtureFactory.CreateFixture().For<DepositResult>().Create();
-            var exitResult = FixtureFactory.CreateFixture().For<ExitResult>().Create();
+            var depositSuccess = FixtureFactory.CreateFixture().Create<DepositResult>();
+            var exitResult = FixtureFactory.CreateFixture().Create<ExitResult>();
 
             this.gameActionHandlerMock
                 .SetupSequence(x => x.Execute(wallet))
