@@ -27,7 +27,7 @@ public class ActionReader : IActionReader
 
         if (string.IsNullOrEmpty(actionString))
         {
-            throw new UnknownActionException(actionString);
+            return Result<IAction>.Fail("Known actions are: deposit, withdraw, bet and exit");
         }
 
         var actionParameters = actionString.Split(' ');

@@ -44,7 +44,7 @@ public class Testing
         _consoleReadLineAction = consoleReadLine;
 
         using var scope = _serviceScopeFactory.CreateScope();
-        var actionHandler = scope.ServiceProvider.GetRequiredService<GameActionHandler>();
+        var actionHandler = scope.ServiceProvider.GetRequiredService<IGameActionHandler>();
         return actionHandler.Execute(wallet);
     }
 

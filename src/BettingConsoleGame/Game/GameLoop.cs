@@ -1,17 +1,15 @@
 ﻿using BettingConsoleGame.Application.Actions.ExitAction;
 using BettingConsoleGame.Domain.Entities;
-using BettingConsoleGame.Domain.Enums;
-using BettingConsoleGame.InputHandlers;
 using BettingConsoleGame.OutputHandlers;
 
 namespace BettingConsoleGame.Game;
 
 public class GameLoop
 {
-    private readonly GameActionHandler gameActionHandler;
+    private readonly IGameActionHandler gameActionHandler;
     private readonly IActionResultOutputter actionResultOutputter;
 
-    public GameLoop(GameActionHandler gameActionHandler, IActionResultOutputter actionResultOutputter)
+    public GameLoop(IGameActionHandler gameActionHandler, IActionResultOutputter actionResultOutputter)
     {
         this.gameActionHandler = gameActionHandler;
         this.actionResultOutputter = actionResultOutputter;
